@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         
         rightImageView.image = UIImage(named: "card\(rightRandomNumber)")
         
+        
     }
     
 }
