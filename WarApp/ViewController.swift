@@ -19,6 +19,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var rightScoreLabel: UILabel!
     
+    var leftScore = 0
+    var rightScore = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,17 +32,33 @@ class ViewController: UIViewController {
  
     @IBAction func dealTapped(_ sender: Any) {
         
+        // Randomize two numbers
         let leftRandomNumber = arc4random_uniform(13) + 2
-        // print("left random number is: \(leftRandomNumber)")
         
         let rightRandomNumber = arc4random_uniform(13) + 2
-        // print("right random number is: \(rightRandomNumber)")
         
+        // Change the image views
         leftImageView.image = UIImage(named: "card\(leftRandomNumber)")
         
         rightImageView.image = UIImage(named: "card\(rightRandomNumber)")
         
-        
+        // Compare the numbers
+        if leftRandomNumber > rightRandomNumber {
+            // Update the score
+            leftScore += 1
+            // Update the label
+            leftScoreLabel.text = String(leftScore)
+        }
+        else if rightRandomNumber > leftRandomNumber {
+            // Update the score
+            rightScore += 1
+            // Update the label
+            rightScoreLabel.text = String(rightScore)
+        }
+        else if leftRandomNumber == rightRandomNumber {
+            
+            
+        }
     }
     
 }
